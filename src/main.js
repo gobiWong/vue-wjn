@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -22,6 +21,19 @@ Vue.http.options.root = 'http://www.lovegf.cn:8899/'
 
 // 配置默认的post提交数据类型为传统表单
 Vue.http.options.emulateJSON = true
+
+// 导入moment包
+import moment from 'moment'
+
+// 定义全局过滤器 : dateFormat
+Vue.filter('dateFormat', (content, pattern = 'YYYY-MM-DD HH:mm:ss') => {
+  return moment(content).format(pattern)
+})
+
+
+import comment from './components/common/comment'
+// 定义全局组件, 参数1: 组件名 决定了将来如何使用 参数2: 组件对象
+Vue.component('comment', comment)
 
 /* eslint-disable no-new */
 new Vue({
