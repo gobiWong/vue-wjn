@@ -4,7 +4,7 @@
     <hr>
     <textarea placeholder="请输入要BB的内容（做多吐槽120字）" maxlength="120" v-model="msg"></textarea>
 
-    <!-- <mt-button type="primary" size="large" @click="postComment">发表评论</mt-button> -->
+    <mt-button type="primary" size="large" @click="postComment">发表评论</mt-button>
 
     <div class="cmt-list">
       <div class="cmt-item" v-for="(item, i) in comments" :key="item.add_time">
@@ -51,6 +51,43 @@ export default {
       // 加载更多
       this.pageIndex++;
       this.getComments();
+    },
+    postComment() {
+      // 校验是否为空内容
+      if (this.msg.trim().length === 0) {
+        return Toast("评论内容不能为空！");
+      }
+
+      // 发表评论
+      // 参数1： 请求的URL地址
+      // 参数2： 提交给服务器的数据对象 { content: this.msg }
+      // 参数3： 定义提交时候，表单中数据的格式  { emulateJSON:true }
+      this.$http
+        .post("api/postcomment/" + this.$route.params.id, {
+          content: this.msg.trim()
+        })
+        .then(function(result) {
+          if (result.body.status === 0) {
+            // 思路1: 手动拼接一个评论对象放入数组
+            // 1. 拼接出一个评论对象
+            var cmt = {
+              user_name: "匿名用户",
+              add_time: Date.now(),
+              content: this.msg.trim()
+            };
+            this.comments.unshift(cmt);
+
+            // 思路2: 将本地数据全部清空, 重新获取第一页的数据
+            // 将现在的数据清空
+            //this.comments = []
+            // 重置索引
+            //this.pageIndex = 1
+            // 重新获取评论
+            //this.getComments()
+            // 清空文本框
+            //this.msg = "";
+          }
+        });
     }
 },
 props: ["id"]
