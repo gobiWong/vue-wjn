@@ -171,5 +171,30 @@
 4. 注意：img标签上的class不能去掉
 5. 注意：每个图片数据对象中，必须有 w 和 h 属性
 
+## 绘制商品列表 页面基本结构并美化
+
+## 在手机上进行项目的预览和测试
+1. 手机和项目电脑处于同一 WIFI 环境 手机访问电脑IP
+2. 在项目package.json 文件，在dev脚本中，添加一个--host指令，把当前电脑WIFI  IP地址，设置为 --host的 指令值(手动配置)
+3. 查看电脑所处WIFI 的IP， 在cmd终端运行`ipconfig`
+4. 在项目config目录下index.js 文件中大概第16行，修改host地址为当前WIFI的IP地址(vue-cli配置)
+
+### vue-router中编程式导航的基本使用
+  1. 使用JS的形式进行路由导航
+    + 注意： 一定要区分 this.$route 和 this.$router 这两个对象，
+    + 其中： this.$route 是路由【参数对象】，所有路由中的参数， params, query 都属于它
+    + 其中： this.$router 是一个路由【导航对象】，用它 可以方便的 使用 JS 代码，实现路由的 前进、后退、 跳转到新的 URL 地址
+
+  // console.log(this);
+  > 1. 最简单的  根据path进行跳转
+  // this.$router.push("/home/goodsInfo/" + id);
+  > 2. 传递对象  如果传入了path 则params无效
+  // 例如: this.$router.push({ path: '/home/goodsInfo', params:{ id } })
+  // this.$router.push({ path: "/home/goodsInfo/" + id });
+  > 3. 传递命名的路由  params只能和name同时使用
+  // 如果使用path进行跳转, 还需要携带参数, 必须自行手动拼接
+    `this.$router.push({ name: "goodsInfo", params: { id } })`
+
+
 
 
