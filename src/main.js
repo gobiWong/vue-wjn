@@ -40,11 +40,15 @@ Vue.component('comment', comment)
 import VuePreview from 'vue-pic-preview'
 Vue.use(VuePreview)
 
+//封装vuex的状态管理文件，并挂载到VM实例上
+import store from './store/'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  render: h => h(App),
   router,
-  render: h => h(App)
+  store
 })
 
 

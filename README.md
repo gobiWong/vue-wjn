@@ -194,6 +194,25 @@
   > 3. 传递命名的路由  params只能和name同时使用
   // 如果使用path进行跳转, 还需要携带参数, 必须自行手动拼接
     `this.$router.push({ name: "goodsInfo", params: { id } })`
+### 商品详情页的轮播图(同首页轮播图)
+
+# vuex的概念及使用
+1. vuex是Vue配套的公共数据管理工具，可以把共享的数据，保存到vuex中，任何组件可直接获取或修改公共数据；
+2. vuex是为了保存组件直接共享数据而设计的，组件之间有要共享的数据，可直接挂载到vuex中，而不必父子组件传值，数据不共享则没必要放在vuex中
+3. props 和data 和vuex的区别：vuex是一个全局的数据存储区域，相当于一个数据仓库。
+**使用:**
+  + 装包 `npm i vuex -S`
+  + 导入 `import Vuex from vuex`
+  + 注册vuex到vue中 `Vue.use(Vuex)`
+  + new Vuex.Store()实例，得到一个数据仓储对象
+    > `var store = new Vuex.Store( state:{},mutations:{})`
+  + 将vuex创建的store 挂载到 VM 实例上
+4. 想要访问，store 中的数据，只能通过 `this.$store.state.xxx`来访问
+5. 想要操作 store中的数据，则调用 mutations 提供的方法，如果直接去操作数据，那就没什么意义了，并且，如果不同组件，直接操作数据，会出现数据紊乱而出错
+6. 同样，组件想要调用 mutations 中的方法，只能使用`this.$store.commit('方法名',唯一的参数)`
+
+
+
 
 
 
