@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h1>商品评论</h1>
+    <comment :id="$route.params.id"></comment>
   </div>
 </template>

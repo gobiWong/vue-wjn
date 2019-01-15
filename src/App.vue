@@ -1,6 +1,13 @@
 <template>
   <div id="app" class="app-container" >
-    <mt-header fixed title="Vue项目模板"></mt-header>
+    <mt-header fixed title="Vue项目模板">
+      <span 
+      v-show="$route.path !== '/home'" 
+      @click="$router.go(-1)" 
+      slot="left">
+        <mt-button icon="back">返回</mt-button>
+      </span>
+    </mt-header>
     
     <nav class="mui-bar mui-bar-tab">
 			<router-link class="mui-tab-item1 " to="/home">

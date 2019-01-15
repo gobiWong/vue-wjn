@@ -212,6 +212,15 @@
 6. 同样，组件想要调用 mutations 中的方法，只能使用`this.$store.commit('方法名',唯一的参数)`
 
 
+### 实现返回按钮功能
+1. 当前所在页面不在 !==/home页 时 span返回标签显示，然后点击返回到上一页直至到home页 完美！！
+1. `<span v-show="$route.path !== '/home'" @click="$router.go(-1)"> </span>`
+      
+      
+      
+      
+
+
 
 
 
