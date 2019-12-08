@@ -6,6 +6,21 @@
           <img :src="item.img" alt>
         </a>
       </mt-swipe-item>
+      <!-- <mt-swipe-item>
+        <a href="#">
+          <img src="../assets/images/l1.png" alt="">
+        </a>
+      </mt-swipe-item>
+      <mt-swipe-item>
+        <a href="#">
+          <img src="../assets/images/l2.png" alt="">
+        </a>
+      </mt-swipe-item>
+      <mt-swipe-item>
+        <a href="#">
+          <img src="../assets/images/l3.png" alt="">
+        </a>
+      </mt-swipe-item> -->
     </mt-swipe>
 
     <!-- 九宫格 到 6宫格 的改造工程 -->

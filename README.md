@@ -215,6 +215,10 @@
 ### 实现返回按钮功能
 1. 当前所在页面不在 !==/home页 时 span返回标签显示，然后点击返回到上一页直至到home页 完美！！
 1. `<span v-show="$route.path !== '/home'" @click="$router.go(-1)"> </span>`
+
+## 打包
+1. 报错：building for production...Error processing file: static/css/app.3798f68bcc1fc4a5d35379232daaacb8.css
+(node:14956) UnhandledPromiseRejectionWarning: postcss-svgo: Error in parsing SVG: Unquoted attribute value
       
       
       
